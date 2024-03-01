@@ -23,6 +23,8 @@ public interface MyArrayList<E> {
 
     boolean remove(Object o);
 
+    void trimToSize();
+
     void sort(Comparator<? super E> c);
 
 }

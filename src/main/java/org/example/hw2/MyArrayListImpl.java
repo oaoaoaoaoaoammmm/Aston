@@ -122,6 +122,15 @@ public class MyArrayListImpl<E> implements MyArrayList<E> {
         return true;
     }
 
+    @Override
+    public void trimToSize() {
+        if (size < elements.length) {
+            elements = (size == 0)
+                    ? new Object[DEFAULT_CAPACITY]
+                    : Arrays.copyOf(elements, size);
+        }
+    }
+
     private void shiftLeft(int index) {
         int newSize = size - 1;
         if (newSize > index) {

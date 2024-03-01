@@ -52,7 +52,7 @@ public class MyArrayListImpl<E> implements MyArrayList<E> {
 
     @Override
     public boolean add(int index, E element) {
-        rangeCheckForAdd(index);
+        rangeCheck(index);
         int temp = size;
         if (index < size) size--;
         if (temp == elements.length) {
@@ -80,7 +80,7 @@ public class MyArrayListImpl<E> implements MyArrayList<E> {
 
     @Override
     public E get(int index) {
-        rangeCheckForAdd(index);
+        rangeCheck(index);
         @SuppressWarnings("unchecked")
         E element = (E) elements[index];
         return element;
@@ -94,7 +94,7 @@ public class MyArrayListImpl<E> implements MyArrayList<E> {
 
     @Override
     public E remove(int index) {
-        rangeCheckForAdd(index);
+        rangeCheck(index);
         @SuppressWarnings("unchecked")
         E element = (E) elements[index];
         elements[index] = null;
@@ -185,7 +185,7 @@ public class MyArrayListImpl<E> implements MyArrayList<E> {
         return newArray;
     }
 
-    private void rangeCheckForAdd(int index) {
+    private void rangeCheck(int index) {
         if (index > elements.length || index < 0)
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
     }
